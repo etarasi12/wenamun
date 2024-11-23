@@ -50,7 +50,7 @@ for i in range(numPages):
     html += '\n\n    <h2 class="page-number">Manuscript Page %i</h2>\n' % currentPage
     
     # Use the number of hieratic images to decide the number of lines for the page
-    lineList = sorted(glob.glob('../hieratic_lines/page%02i/*.png' % currentPage))
+    lineList = sorted(glob.glob('../hieratic/page%02i/*.png' % currentPage))
     numLines = len(lineList)
     
     # Create the output image directory, if necessary
@@ -64,8 +64,8 @@ for i in range(numPages):
         current_png_ref = 'page%02i_line%03i.png' % (currentPage, currentLine)
 
         # Copy images into /docs for the webpage to use
-        hieratic_src = '../hieratic_lines/page%02i/%s' % (currentPage, current_png_ref)
-        hieroglyphic_src = '../png_lines/%s' % current_png_ref
+        hieratic_src = '../hieratic/page%02i/%s' % (currentPage, current_png_ref)
+        hieroglyphic_src = '../lines/%s' % current_png_ref
         have_hieratic = os.path.exists(hieratic_src)
         have_hieroglyphic = os.path.exists(hieroglyphic_src)
         if not have_hieratic or not have_hieroglyphic:

@@ -12,12 +12,12 @@ JSESH_HEADER = """++JSesh_Info 1.0 +s
 ++JSesh_max_quadrantHeight 18.0 +s
 ++JSesh_page_orientation HORIZONTAL +s"""
 
-OUTPUT_DIR = '../mdc_lines/'
+OUTPUT_DIR = '../lines/'
 
 import glob
 import os
 
-pageList = glob.glob("../mdc_pages/page*.gly")
+pageList = glob.glob("../mdc/page*.gly")
 
 # Create the output directory if necessary
 os.makedirs(OUTPUT_DIR, exist_ok = True)
