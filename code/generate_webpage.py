@@ -145,6 +145,6 @@ function toggle_nav() {
 
 html = HTML_HEADER + nav + HTML_MAIN + html + HTML_FOOTER + script
 
-f = open('../docs/wenamun.html', 'w')
+f = open('../docs/index.html', 'w')
 f.write(html)
 f.close()
