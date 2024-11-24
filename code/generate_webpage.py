@@ -10,7 +10,7 @@ HTML_HEADER = """<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-    <title>hr-st</title>
+    <title>Wenamun</title>
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
@@ -18,8 +18,8 @@ HTML_HEADER = """<!DOCTYPE html>
 HTML_MAIN = """
     <div class="container">
     <div class="info">
-    <h1>Contendings of Horus and Seth</h1>
-    <p>Transcription from Papyrus Chester Beatty</p>
+    <h1>Story of Wenamun</h1>
+    <p>Transcription from Papyrus Moscow 120</p>
     </div>
     """
 HTML_FOOTER = """
@@ -36,7 +36,7 @@ html = ''
 # Note that this may not be correct, but any errors 
 # (say, an empty MdC file that adds one to this number)
 # have only minor consquences
-pageList = sorted(glob.glob("../mdc_pages/page*.gly"))
+pageList = sorted(glob.glob("../mdc/page*.gly"))
 numPages = len(pageList)
 
 # We don't assume that the numbers in the filenames are valid
@@ -50,8 +50,11 @@ for i in range(numPages):
     html += '\n\n    <h2 class="page-number">Manuscript Page %i</h2>\n' % currentPage
     
     # Use the number of hieratic images to decide the number of lines for the page
-    lineList = sorted(glob.glob('../hieratic/page%02i/*.png' % currentPage))
+    lineGlob = '../hieratic/line-%i.*.png' % currentPage
+    print('Scanning %s...' % lineGlob)
+    lineList = sorted(glob.glob('../hieratic/line-%i.*.png' % currentPage))
     numLines = len(lineList)
+    print('Found %i lines' % numLines, lineList)
     
     # Create the output image directory, if necessary
     os.makedirs('../docs/images', mode=0o755, exist_ok=True)
@@ -61,13 +64,17 @@ for i in range(numPages):
         
         print('Generating page %i, line %i' % (currentPage,currentLine))
         
-        current_png_ref = 'page%02i_line%03i.png' % (currentPage, currentLine)
+        current_png_ref = 'line-%i.%02i.png' % (currentPage, currentLine)
 
         # Copy images into /docs for the webpage to use
-        hieratic_src = '../hieratic/page%02i/%s' % (currentPage, current_png_ref)
+        hieratic_src = '../hieratic/%s' % current_png_ref
         hieroglyphic_src = '../lines/%s' % current_png_ref
         have_hieratic = os.path.exists(hieratic_src)
+        if not have_hieratic:
+            print(hieratic_src, 'not present. skipping.')
         have_hieroglyphic = os.path.exists(hieroglyphic_src)
+        if not have_hieroglyphic:
+            print(hieroglyphic_src, 'not present. skipping.')
         if not have_hieratic or not have_hieroglyphic:
             # Go to the next page if we've run out of images
             break
@@ -138,6 +145,6 @@ function toggle_nav() {
 
 html = HTML_HEADER + nav + HTML_MAIN + html + HTML_FOOTER + script
 
-f = open('../docs/hr-st.html', 'w')
+f = open('../docs/wenamun.html', 'w')
 f.write(html)
 f.close()

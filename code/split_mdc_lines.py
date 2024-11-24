@@ -41,10 +41,9 @@ for pageName in pageList:
             # print('header line')
             continue
         
-        newFilename = '%spage%02i_line%03i.txt' % (OUTPUT_DIR, pageNumber, lineNumber)
+        newFilename = '%sline-%i.%02i.txt' % (OUTPUT_DIR, pageNumber, lineNumber)
         f = open(newFilename, 'w')
         f.write(JSESH_HEADER + '\n' + line)
         f.close()
         
         lineNumber += 1
-    
