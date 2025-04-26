@@ -55,6 +55,7 @@ nav a {
   margin-top: 50px;
 }
 
+/* Flip images to choose a different reading direction */
 img.flip {
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
