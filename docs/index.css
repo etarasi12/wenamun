@@ -55,7 +55,21 @@ nav a {
   margin-top: 50px;
 }
 
+/* Flip images to choose a different reading direction */
 img.flip {
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
+}
+
+/* Hide transcription until mouseover to focus reading */
+.hieroglyphic {
+  display: inline-block;
+  outline: 1px solid;
+}
+.hieroglyphic img {
+  opacity: 0;
+  transition: opacity 200ms;
+}
+.hieroglyphic:hover img {
+  opacity: 1;
 }
