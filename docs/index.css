@@ -1,3 +1,7 @@
+/* set the overall layout direction */
+:root {
+  direction: rtl;
+}
 
 /* quick-link panel for navigation */
 .navbar {
@@ -16,7 +20,7 @@ nav {
 }
 
 nav.hidden {
-  translate: 5em;
+  translate: 7em;
 }
 
 .big {
