@@ -125,21 +125,14 @@ nav += """      </ol>
 
 script = """
 <script>
+// Hook up event handlers after the page has loaded.
 document.addEventListener('DOMContentLoaded', (e) => {
+  // Navigation menu open/close.
   navbutton = document.querySelector('button');
   navbutton.addEventListener('mousedown', (click) => {
-    toggle_nav();
+    document.querySelector('nav').classList.toggle('hidden');
   });
 });
-
-function toggle_nav() {
-  nav = document.querySelector('nav');
-  if (nav.classList.contains('hidden')) {
-      nav.classList.remove('hidden');
-  } else {
-      nav.classList.add('hidden');
-  }
-}
 </script>
 """
 
