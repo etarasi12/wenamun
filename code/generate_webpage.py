@@ -98,7 +98,7 @@ for i in range(numPages):
         html += '\n      <div class="hieratic">'
         html += '\n        <img src="./images/hieratic_%s" />' % current_png_ref
         html += '\n      </div>'
-        html += '\n      <div class="hieroglyphic">'
+        html += '\n      <div class="hieroglyphic fade">'
         html += '\n        <img src="./images/hieroglyphic_%s" width="%ipx" %s/>' % (current_png_ref, width, maybe_flip)
         html += '\n      </div>'
         html += '\n    </div>'
@@ -132,6 +132,12 @@ document.addEventListener('DOMContentLoaded', (e) => {
   navbutton.addEventListener('mousedown', (click) => {
     document.querySelector('nav').classList.toggle('hidden');
   });
+  // Toggle transcription hiding.
+  for (element of document.getElementsByClassName('hieroglyphic')) {
+    element.addEventListener('click', (event) => {
+      event.target.parentElement.classList.toggle('fade');
+    });
+  }
 });
 </script>
 """
