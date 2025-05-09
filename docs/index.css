@@ -68,7 +68,10 @@ img.flip {
 /* Hide transcription until mouseover to focus reading */
 .hieroglyphic {
   display: inline-block;
-  outline: 1px solid;
+  outline: 1px solid red;
+}
+.fade {
+  outline: 1px solid black;
 }
 .fade img {
   opacity: 0;
