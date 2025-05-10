@@ -1,3 +1,7 @@
+/* set the overall layout direction */
+:root {
+  direction: rtl;
+}
 
 /* quick-link panel for navigation */
 .navbar {
@@ -16,7 +20,7 @@ nav {
 }
 
 nav.hidden {
-  translate: 5em;
+  translate: 7em;
 }
 
 .big {
@@ -64,9 +68,12 @@ img.flip {
 /* Hide transcription until mouseover to focus reading */
 .hieroglyphic {
   display: inline-block;
-  outline: 1px solid;
+  outline: 1px solid red;
 }
-.hieroglyphic img {
+.fade {
+  outline: 1px solid black;
+}
+.fade img {
   opacity: 0;
   transition: opacity 200ms;
 }

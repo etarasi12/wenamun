@@ -98,7 +98,7 @@ for i in range(numPages):
         html += '\n      <div class="hieratic">'
         html += '\n        <img src="./images/hieratic_%s" />' % current_png_ref
         html += '\n      </div>'
-        html += '\n      <div class="hieroglyphic">'
+        html += '\n      <div class="hieroglyphic fade">'
         html += '\n        <img src="./images/hieroglyphic_%s" width="%ipx" %s/>' % (current_png_ref, width, maybe_flip)
         html += '\n      </div>'
         html += '\n    </div>'
@@ -125,21 +125,20 @@ nav += """      </ol>
 
 script = """
 <script>
+// Hook up event handlers after the page has loaded.
 document.addEventListener('DOMContentLoaded', (e) => {
+  // Navigation menu open/close.
   navbutton = document.querySelector('button');
   navbutton.addEventListener('mousedown', (click) => {
-    toggle_nav();
+    document.querySelector('nav').classList.toggle('hidden');
   });
-});
-
-function toggle_nav() {
-  nav = document.querySelector('nav');
-  if (nav.classList.contains('hidden')) {
-      nav.classList.remove('hidden');
-  } else {
-      nav.classList.add('hidden');
+  // Toggle transcription hiding.
+  for (element of document.getElementsByClassName('hieroglyphic')) {
+    element.addEventListener('click', (event) => {
+      event.target.parentElement.classList.toggle('fade');
+    });
   }
-}
+});
 </script>
 """
 
