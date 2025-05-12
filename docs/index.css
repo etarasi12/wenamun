@@ -81,7 +81,7 @@ img.flip {
   opacity: 1;
 }
 
-/* Reduce container width, and set a max width for lines */
+/* Reduce container width and set a max width for lines */
 .container {
     width: unset;
 }
