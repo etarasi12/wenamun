@@ -43,7 +43,6 @@ nav a {
 }
 
 .container {
-  width: 3020px;
   padding: 0 20px;
   border: 0px solid red;
   /* Place block elements and text aligned on the right */
@@ -81,10 +80,7 @@ img.flip {
   opacity: 1;
 }
 
-/* Reduce container width and set a max width for lines */
-.container {
-    width: unset;
-}
+/* Set a max width for lines and scale to fit within that */
 img {
     width: 100%;
 }
