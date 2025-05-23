@@ -43,7 +43,6 @@ nav a {
 }
 
 .container {
-  width: 3020px;
   padding: 0 20px;
   border: 0px solid red;
   /* Place block elements and text aligned on the right */
@@ -79,4 +78,12 @@ img.flip {
 }
 .hieroglyphic:hover img {
   opacity: 1;
+}
+
+/* Set a max width for lines and scale to fit within that */
+img {
+    width: 100%;
+}
+.line {
+    max-width: 1200px;
 }
